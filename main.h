@@ -17,5 +17,6 @@ void free_str(char **input);
 int string_cleaning(char *l);
 int number_of_token(char *del, char *string);
 char **string_tok(char *ln, char *del);
+int executing(char *path, char **string);
 
 #endif
