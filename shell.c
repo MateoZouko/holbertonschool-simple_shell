@@ -10,5 +10,15 @@ int main(char **argv, int argc, char **environment)
     char *ln = NULL, *path = NULL;
     (void)argv;
     (void)argc;
-    
+
+    while (true)
+    {
+        if (isatty(STDIN_FILENO))
+            printf("$: ");
+
+        if (getline(&ln, &l, stdin) == -1)
+        {
+            break;
+        }
+    }
 }
