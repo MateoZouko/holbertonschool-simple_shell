@@ -37,5 +37,11 @@ int main(char **argv, int argc, char **environment)
             free_str(array_tok);
             continue;
         }
+
+        if (strcmp(array_tok[0], "exit") == 0)
+        {
+            free_str(array_tok);
+            break;
+        }
     }
 }
