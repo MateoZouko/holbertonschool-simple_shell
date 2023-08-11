@@ -3,13 +3,16 @@
 int executing(char *path, char **string)
 {
     int st, exit_st;
+    pid_t pid;
 
-    if (fork() == -1)
+    pid = fork();
+
+    if (pid == -1)
     {
         return (1);
     }
 
-    if (fork() == 0)
+    if (pid == 0)
     {
         execve(path, string, NULL);
         return (1);
