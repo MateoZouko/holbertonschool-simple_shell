@@ -20,5 +20,22 @@ int main(char **argv, int argc, char **environment)
         {
             break;
         }
+
+        string_cleaning(ln);
+
+        if (!number_of_token(ln, " "))
+            continue;
+
+        array_tok = string_tok(ln, "\n\t");
+
+        if (strcmp(array_tok[0], "environment") == 0)
+        {
+            for (n = 0; environment[n] != NULL; n++)
+            {
+                printf("%s\n", environment[n]);
+            }
+            free_str(array_tok);
+            continue;
+        }
     }
 }
