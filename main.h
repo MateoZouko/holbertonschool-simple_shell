@@ -19,5 +19,6 @@ int number_of_token(char *del, char *string);
 char **string_tok(char *ln, char *del);
 int executing(char *path, char **string);
 int finding_the_path(char **array_path, char **arguments);
+int substringLength(char *string, char *del);
 
 #endif
