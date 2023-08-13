@@ -43,5 +43,35 @@ int main(char **argv, int argc, char **environment)
             free_str(array_tok);
             break;
         }
+
+        n = 0;
+
+        while (environment[n] != NULL)
+        {
+            if (strncmp(environment[n], "PATH=", 5) == 0)
+            {
+                path = strdup((environment[n] + 5));
+                break;
+            }
+            n++;
+        }
+
+        array_paths = string_tok(path, ":");
+        free(path);
+        if (access(array_tok[0], X_OK) == 0)
+        {
+            executing(array_tok[0], array_tok);
+        }
+        else
+        {
+            op = finding_the_path(array_paths, array_tok);
+        }
+
+        free_str(array_tok);
+        free_str(array_paths);
     }
+    if (ln)
+        free(ln);
+
+    return (op);
 }
