@@ -2,76 +2,77 @@
 
 void our_shell(void);
 
-int main(char **argv, int argc, char **environment)
+int main(int argc, char **argv, char **environment)
 {
-    char **array_tok = NULL, **array_paths = NULL;
-    size_t l = 0;
-    int n = 0, op = 0;
-    char *ln = NULL, *path = NULL;
-    (void)argv;
+    char **array_of_tok = NULL, **paths = NULL;
+    size_t ln = 0;
+    int a = 0, op = 0;
+    char *l = NULL, *path = NULL;
     (void)argc;
+    (void)argv;
 
     while (true)
     {
         if (isatty(STDIN_FILENO))
             printf("$: ");
 
-        if (getline(&ln, &l, stdin) == -1)
+        if (getline(&l, &ln, stdin) == -1)
         {
             break;
         }
 
-        string_cleaning(ln);
+        cleaningstring(l);
 
-        if (!number_of_token(ln, " "))
+        if (!tokenident(l, " "))
             continue;
 
-        array_tok = string_tok(ln, "\n\t");
+        array_of_tok = string_tok(l, " \n\t");
 
-        if (strcmp(array_tok[0], "environment") == 0)
+        if (strcmp(array_of_tok[0], "env") == 0)
         {
-            for (n = 0; environment[n] != NULL; n++)
+            for (a = 0; environment[a] != NULL; a++)
             {
-                printf("%s\n", environment[n]);
+                printf("%s\n", environment[a]);
             }
-            free_str(array_tok);
+            free_str(array_of_tok);
             continue;
         }
 
-        if (strcmp(array_tok[0], "exit") == 0)
+        if (strcmp(array_of_tok[0], "exit") == 0)
         {
-            free_str(array_tok);
+            free_str(array_of_tok);
             break;
         }
 
-        n = 0;
+        a = 0;
 
-        while (environment[n] != NULL)
+        while (environment[a] != NULL)
         {
-            if (strncmp(environment[n], "PATH=", 5) == 0)
+            if (strncmp(environment[a], "PATH=", 5) == 0)
             {
-                path = strdup((environment[n] + 5));
+                path = strdup((environment[a] + 5));
                 break;
             }
-            n++;
+            a++;
         }
 
-        array_paths = string_tok(path, ":");
+        paths = string_tok(path, ":");
         free(path);
-        if (access(array_tok[0], X_OK) == 0)
+
+        if (access(array_of_tok[0], X_OK) == 0)
         {
-            executing(array_tok[0], array_tok);
+            executing(array_of_tok[0], array_of_tok);
         }
         else
         {
-            op = finding_the_path(array_paths, array_tok);
+            op = finding_the_path(paths, array_of_tok);
         }
 
-        free_str(array_tok);
-        free_str(array_paths);
+        free_str(array_of_tok);
+        free_str(paths);
     }
-    if (ln)
-        free(ln);
+    if (l)
+        free(l);
 
     return (op);
 }

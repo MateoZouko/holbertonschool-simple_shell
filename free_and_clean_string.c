@@ -1,22 +1,22 @@
 #include "main.h"
 
-void free_str(char **input)
+void free_str(char **argument)
 {
-    unsigned int n = 0;
+    unsigned int a = 0;
 
-    if (!input)
-    return;
-    if(!*input)
-    return;
+    if (!argument)
+        return;
+    if (!*argument)
+        return;
 
-    for (; input[n]; n++)
+    for (; argument[a]; a++)
     {
-        free(input[n]);
+        free(argument[a]);
     }
-    free(input);
+    free(argument);
 }
 
-int string_cleaning(char *l)
+int cleaningstring(char *l)
 {
     int a = 0;
 

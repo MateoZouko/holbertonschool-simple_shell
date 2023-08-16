@@ -1,27 +1,27 @@
 #include "main.h"
+#include <sys/stat.h>
 
-int finding_the_path(char **array_path, char **arguments)
+int finding_the_path(char **path, char **args_array)
 {
-    int n = 0;
-    char *temporary_pointer = NULL;
+    int a = 0;
+    char *t = NULL;
 
-    while (array_path[n] != NULL)
+    while (path[a] != NULL)
     {
-        temporary_pointer = malloc(strlen(arguments[0]) + strlen(array_path[n]) + 2);
+        t = malloc(strlen(args_array[0]) + strlen(path[a]) + 2);
 
-        strcpy(temporary_pointer, array_path[n]);
-        strcat(temporary_pointer, "/");
-        strcat(temporary_pointer, arguments[0]);
+        strcpy(t, path[a]);
+        strcat(t, "/");
+        strcat(t, args_array[0]);
 
-        if (access(temporary_pointer, F_OK) == 0)
+        if (access(t, F_OK) == 0)
         {
-
-            executing(temporary_pointer, arguments);
-            free(temporary_pointer);
+            executing(t, args_array);
+            free(t);
             return (0);
         }
-        free(temporary_pointer);
-        n++;
+        free(t);
+        a++;
     }
     return (127);
 }

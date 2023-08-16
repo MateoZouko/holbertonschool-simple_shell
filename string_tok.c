@@ -1,34 +1,35 @@
 #include "main.h"
 
-char **string_tok(char *ln, char *del);
+char **string_tok(char *line, char *delimits);
 
-char **string_tok(char *ln, char *del)
+char **string_tok(char *line, char *delimits)
 {
-    char **Storage_of_Tok;
-    int a, b = 0, c, totaltoken, stringlength = 0;
+    char **tokenStor;
+    int i, l = 0, n, tokentot, slen = 0;
 
-    if (!ln)
+    if (!line)
         return (NULL);
-    if (!(*ln))
+    if (!(*line))
         return (NULL);
 
-    totaltoken = number_of_token(ln, del);
-    Storage_of_Tok = malloc(sizeof(char *) * (totaltoken + 1));
+    tokentot = tokenident(line, delimits);
 
-    for (a = 0; a < totaltoken; a++)
+    tokenStor = malloc(sizeof(char *) * (tokentot + 1));
+
+    for (i = 0; i < tokentot; i++)
     {
-        while (ln[b] == *del || ln[b] == del[1])
-            b++;
+        while (line[l] == *delimits || line[l] == delimits[1])
+            l++;
 
-        stringlength = substringLength(ln + b, del);
+        slen = substring_length(line + l, delimits);
 
-        Storage_of_Tok[a] = malloc(sizeof(char) * (stringlength + 1));
+        tokenStor[i] = malloc(sizeof(char) * (slen + 1));
 
-        for (c = 0; c < stringlength; c++, b++)
-            Storage_of_Tok[a][c] = ln[b];
-        Storage_of_Tok[a][c] = '\0';
+        for (n = 0; n < slen; n++, l++)
+            tokenStor[i][n] = line[l];
+        tokenStor[i][n] = '\0';
     }
-    Storage_of_Tok[a] = NULL;
+    tokenStor[i] = NULL;
 
-    return (Storage_of_Tok);
+    return (tokenStor);
 }

@@ -2,8 +2,8 @@
 
 int executing(char *path, char **string)
 {
-    int st, exit_st;
     pid_t pid;
+    int stats, exit_;
 
     pid = fork();
 
@@ -20,22 +20,22 @@ int executing(char *path, char **string)
 
     else
     {
-        if (wait(&st) == -1)
+        if (wait(&stats) == -1)
         {
             return (1);
         }
     }
 
-    if (WIFEXITED(st))
+    if (WIFEXITED(stats))
     {
-        exit_st = WEXITSTATUS(st);
-        if (exit_st == 0)
+        exit_ = WEXITSTATUS(stats);
+        if (exit_ == 0)
             return (0);
         else
             return (1);
     }
 
-    if (WIFSIGNALED(st))
+    if (WIFSIGNALED(stats))
         return (1);
 
     return (1);
