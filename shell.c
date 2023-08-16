@@ -2,6 +2,14 @@
 
 void our_shell(void);
 
+/**
+* main - the main with the main loop
+* @argc: num of args
+* @argv: array of pointers to the args
+* @env: array of pointer to the env variables
+* Return: 0/1
+*/
+
 int main(int argc, char **argv, char **environment)
 {
     char **array_of_tok = NULL, **paths = NULL;

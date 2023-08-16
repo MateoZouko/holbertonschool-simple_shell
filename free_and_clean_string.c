@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+* free_str - Free the array of strings
+* @argument: The array
+* Return: void
+*/
 void free_str(char **argument)
 {
     unsigned int a = 0;
@@ -16,6 +21,11 @@ void free_str(char **argument)
     free(argument);
 }
 
+/**
+* cleaningstring - removes the newline from the input
+* @l: pointer to input
+* Return: 0/1
+*/
 int cleaningstring(char *l)
 {
     int a = 0;

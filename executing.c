@@ -1,6 +1,13 @@
 #include "main.h"
 
-int executing(char *path, char **string)
+/**
+* executing - executes a program in a child process
+* @path: point to the path thay contains the operation
+* @array: tokenized array
+* Return: 1/0
+*/
+
+int executing(char *path, char **array)
 {
     pid_t pid;
     int stats, exit_;
@@ -14,7 +21,8 @@ int executing(char *path, char **string)
 
     if (pid == 0)
     {
-        execve(path, string, NULL);
+        execve(path, array
+    , NULL);
         return (1);
     }
 
