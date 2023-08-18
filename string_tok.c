@@ -3,11 +3,11 @@
 char **string_tok(char *line, char *delimits);
 
 /**
- * string_tok - tokenizes strings into substrings
- * @line: string to tokenize
- * @delimits: delimiters to tokenize
- * Return: token array
- */
+* string_tok - tokenizes strings into substrings
+* @line: string to tokenize
+* @delimits: delimiters to tokenize
+* Return: token array
+*/
 
 char **string_tok(char *line, char *delimits)
 {

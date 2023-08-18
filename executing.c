@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * executing - executes a program in a child process
- * @path: point to the path thay contains the operation
- * @array: tokenized array
- * Return: 1/0
- */
+* executing - executes a program in a child process
+* @path: point to the path thay contains the operation
+* @array: tokenized array
+* Return: 1/0
+*/
 
 int executing(char *path, char **array)
 {

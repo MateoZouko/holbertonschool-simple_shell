@@ -2,11 +2,12 @@
 #include <sys/stat.h>
 
 /**
- * finding_the_path - find the operation checking a path
- * @path: strings array with directiories
- * @args_array: array of arguments
- * Return: 1/0
- */
+* finding_the_path - find the operation checking a path
+* @path: strings array with directiories
+* @args_array: array of arguments
+* Return: 1/0
+*/
+
 int finding_the_path(char **path, char **args_array)
 {
 	int a = 0;

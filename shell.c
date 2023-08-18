@@ -3,11 +3,11 @@
 void our_shell(void);
 
 /**
- * main - the main with the main loop
- * @argc: num of args
- * @argv: array of pointers to the args
- * Return: 0/1
- */
+* main - the main with the main loop
+* @argc: num of args
+* @argv: array of pointers to the args
+* Return: 0/1
+*/
 
 int main(int argc, char **argv)
 {
@@ -83,3 +83,4 @@ int main(int argc, char **argv)
 
 	return (op);
 }
+

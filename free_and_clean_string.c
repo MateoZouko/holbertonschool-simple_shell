@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * free_str - Free the array of strings
- * @argument: The array
- * Return: void
- */
+* free_str - Free the array of strings
+* @argument: The array
+* Return: void
+*/
 void free_str(char **argument)
 {
 	unsigned int a = 0;
