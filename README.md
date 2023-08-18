@@ -135,5 +135,6 @@ You don’t have to:
 
 ### Authors
 
-- Gerardo Martinez: https://github.com/gera190293
 - Mateo Zouko: https://github.com/MateoZouko
+- Gerardo Martinez: https://github.com/gera190293
+
