@@ -121,6 +121,7 @@ You don’t have to:
 - stat (__xstat) (man 2 stat)
 - lstat (__lxstat) (man 2 lstat)
 - fstat (__fxstat) (man 2 fstat)
+
 - strtok (man 3 strtok)
 - wait (man 2 wait)
 - waitpid (man 2 waitpid)
@@ -130,7 +131,7 @@ You don’t have to:
 
 ## Flowchart
 
-![Flowchart](https://drive.google.com/file/d/1XLxqgDkCVojT84YjetU3Ah3YhdcT1x1k/view?usp=drive_link.jpeg)
+![Flowchart_simple_shell](https://github.com/MateoZouko/holbertonschool-simple_shell/assets/135637635/fb16ece9-dfac-42bb-8fc4-29edb882d909)
 
 ### Authors
 
