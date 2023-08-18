@@ -130,4 +130,9 @@ You don’t have to:
 
 ## Flowchart
 
-![Flowchart](https://ibb.co/fvVsVRR)
+![Flowchart](https://drive.google.com/file/d/1XLxqgDkCVojT84YjetU3Ah3YhdcT1x1k/view?usp=drive_link.jpeg)
+
+### Authors
+
+- Gerardo Martinez: https://github.com/gera190293
+- Mateo Zouko: https://github.com/MateoZouko
