@@ -1,140 +1,100 @@
-# Simple Shell
 
-## Description:
+<h1 align="center">
+  <br>
+  <a href="/"><img src="https://i.imgur.com/T3b8InR.png" alt="Simple Shell"></a>
+  <br>
+  Simple Shell Project
+  <br>
+</h1>
 
-In this project we need to create a simple version of the Shell.
+<h4 align="center">Simple command line interpreter called <a href="https://en.wikipedia.org/wiki/Shell_(computing)" target="_blank">Simple Shell</a>.</h4>
 
-The requirements for this project was:
-- Allowed editors: vi, vim, emacs
-- All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
-- All your files should end with a new line
-- A README.md file, at the root of the folder of the project is mandatory
-- Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-- Your shell should not have any memory leaks
-- No more than 5 functions per file
-- All your header files should be include guarded
-- Use system calls only when you need to
-- There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.
-- Unless specified otherwise, your program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
-- The only difference is when you print an error, the name of the program must be equivalent to your argv[0]
+<p align="center">
+  <a href="#introduction">Introduction</a> •
+  <a href="#files">Files</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#download">Download and tasks</a> •
+  <a href="#enviroment">Enviroment</a> •
+  <a href="#flowchart">Flowchart</a> •
+  <a href="#license">Authors</a>
+</p>
 
-## Given tasks
+## Introduction
+A simple shell is a basic command-line interface that allows users to interact with an operating system by executing commands. It functions as a command interpreter that takes user instructions and translates them into actions that the operating system can perform. Simple shells typically provide fundamental functionalities such as running programs, managing files and directories, displaying system information, and performing basic manipulation tasks. While lacking the advanced features found in more comprehensive shells, they play a fundamental role in providing a straightforward and efficient way to interact with a computer system through text-based command input.
 
-0. README, man, AUTHORS.
+  ## Files
+|File|Description|
+|---|---|
+|[AUTHORS](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/AUTHORS)|Contributors in this repository|
+|[README.md](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/README.md)|Information about our repository|
+|[find_the_path.c](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/finding_the_path.c)|Code that searches and executes operation in PATH, returns 0 on success, 127 if not found.|
+|[free_and_clean_string.c](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/free_and_clean_string.c)|Functions that free an array of strings and remove the newline from an input, respectively.|
+|[string_tok.c](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/string_tok.c)|Function that tokenizes strings into substrings using delimiters and returns a set of tokens in an array.|
+|[number_of_token.h](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/number_of_token.c)|Functions that count the number of tokens in a string and calculate the length of a substring, respectively, using specified delimiters.|
+|[executing.c](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/executing.c)|Code that runs a program in a child process, returns 0 on success, 1 on issue.||
+|[shell.c](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/shell.c)|Main function implementing the core loop of a custom shell, handling and executing commands from standard input.|
+|[main.h](https://github.com/MateoZouko/holbertonschool-simple_shell/blob/main/main.h)|Prototypes functions and headers|
 
-- Write a README
-- Write a man for your shell.
-- You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository.
+## How To Use
 
-1. Betty would be proud
+To clone and run this program, you'll need [Linux](https://www.google.com/search?client=firefox-b-d&q=install+linux+in+my+pc) and installed on your computer. <br>
+From your command line:
 
-- Write a beautiful code that passes the Betty checks
+```bash
+# Clone this repository
+$ git clone https://github.com/MateoZouko/holbertonschool-simple_shell.git
 
-2. Simple shell 0.1
+# Go into the shell
+$ cd holbertonschool-simple_shell
 
-- Write a UNIX command line interpreter.
+# Run the app
+$ ./hsh
+```
 
-- Usage: simple_shell
-Your Shell should:
+> **Note**
+> If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) for run `bash commands`.
 
-- Display a prompt and wait for the user to type a command. A command line always ends with a new line.
-- The prompt is displayed again each time a command has been executed.
-- The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
-- The command lines are made only of one word. No arguments will be passed to programs.
-- If an executable cannot be found, print an error message and display the prompt again.
-- Handle errors.
-- You have to handle the “end of file” condition (Ctrl+D)
 
-You don’t have to:
+## Download
 
-- use the PATH
-- implement built-ins
-- handle special characters : ", ', `, \, *, &, #
-- be able to move the cursor
-- handle commands with arguments
+You can [download](https://github.com/MateoZouko/holbertonschool-simple_shell/archive/refs/heads/main.zip) and run this in Linux.
 
-3. Simple shell 0.2
+## Given Task
 
-- Handle command lines with arguments
-
-3. Simple shell 0.2
-
-- Handle command lines with arguments
-
-5. Simple shell 0.4
-
-- Implement the exit built-in, that exits the shell
-- Usage: exit
-- You don’t have to handle any argument to the built-in exit
-
-6. Simple shell 1.0
-
-- Implement the env built-in, that prints the current environment
-
-      julien@ubuntu:~/shell$ ./simple_shell
-      $ env
-      USER=julien
-      LANGUAGE=en_US
-      SESSION=ubuntu
-      COMPIZ_CONFIG_PROFILE=ubuntu
-      SHLVL=1
-      HOME=/home/julien
-      C_IS=Fun_:)
-      DESKTOP_SESSION=ubuntu
-      LOGNAME=julien
-      TERM=xterm-256color
-      PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-      DISPLAY=:0
-      $ exit
-      julien@ubuntu:~/shell$
-
-## List of allowed functions and system calls+
-
-- all functions from string.h
-- access (man 2 access)
-- chdir (man 2 chdir)
-- close (man 2 close)
-- closedir (man 3 closedir)
-- execve (man 2 execve)
-- exit (man 3 exit)
-- _exit (man 2 _exit)
-- fflush (man 3 fflush)
-- fork (man 2 fork)
-- free (man 3 free)
-- getcwd (man 3 getcwd)
-- getline (man 3 getline)
-- getpid (man 2 getpid)
-- isatty (man 3 isatty)
-- kill (man 2 kill)
-- malloc (man 3 malloc)
-- open (man 2 open)
-- opendir (man 3 opendir)
-- perror (man 3 perror)
-- printf (man 3 printf)
-- fprintf (man 3 fprintf)
-- vfprintf (man 3 vfprintf)
-- sprintf (man 3 sprintf)
-- putchar (man 3 putchar)
-- read (man 2 read)
-- readdir (man 3 readdir)
-- signal (man 2 signal)
-- stat (__xstat) (man 2 stat)
-- lstat (__lxstat) (man 2 lstat)
-- fstat (__fxstat) (man 2 fstat)
-
-- strtok (man 3 strtok)
-- wait (man 2 wait)
-- waitpid (man 2 waitpid)
-- wait3 (man 2 wait3)
-- wait4 (man 2 wait4)
-- write (man 2 write)
+<code>
+    0. README, man_1_simple_shell, AUTHORS <br>
+    1. Betty would be proud <br>
+    2. Write a UNIX command line interpreter. <br>
+    3. Handle command lines with arguments <br>
+    4. Handle the PATH but fork must not be called if the command doesn’t exist. <br>
+    5. Implement the exit built-in, that exits the shell without built-in arg. <br>
+    6. Implement the env built-in, that prints the current environment. <br>
+</code>
+<br>
+Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
 
 ## Flowchart
 
-![Flowchart_simple_shell](https://github.com/MateoZouko/holbertonschool-simple_shell/assets/135637635/fb16ece9-dfac-42bb-8fc4-29edb882d909)
+How the program work
 
-### Authors
+![image](https://user-images.githubusercontent.com/135637635/261515890-fb16ece9-dfac-42bb-8fc4-29edb882d909.jpg)
 
-- Mateo Zouko: https://github.com/MateoZouko
-- Gerardo Martinez: https://github.com/gera190293
+## Enviroment
+
+- [Ubuntu](https://ubuntu.com/)
+- [GNU](https://www.gnu.org/software/bash/)
+- [C](https://www.cprogramming.com/)
+- [Vim](https://www.vim.org/)
+- [Git](https://git-scm.com/)
+- [Github](https://github.com)
+- [Betty style](https://github.com/holbertonschool/Betty/wiki)
+
+## License
+
+Open Source
+
+---
+
+> Mateo Zouko [MateoZouko](https://github.com/MateoZouko) &nbsp;&middot;&nbsp;
+> Gerardo Martinez [gera190293](https://github.com/gera190293)
 
