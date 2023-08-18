@@ -6,11 +6,10 @@ void our_shell(void);
  * main - the main with the main loop
  * @argc: num of args
  * @argv: array of pointers to the args
- * @environment: array of pointer to the env variables
  * Return: 0/1
  */
 
-int main(int argc, char **argv, char **environment)
+int main(int argc, char **argv)
 {
 	char **array_of_tok = NULL, **paths = NULL;
 	size_t ln = 0;
@@ -38,9 +37,9 @@ int main(int argc, char **argv, char **environment)
 
 		if (strcmp(array_of_tok[0], "env") == 0)
 		{
-			for (a = 0; environment[a] != NULL; a++)
+			for (a = 0; environ[a] != NULL; a++)
 			{
-				printf("%s\n", environment[a]);
+				printf("%s\n", environ[a]);
 			}
 			free_str(array_of_tok);
 			continue;
@@ -54,11 +53,11 @@ int main(int argc, char **argv, char **environment)
 
 		a = 0;
 
-		while (environment[a] != NULL)
+		while (environ[a] != NULL)
 		{
-			if (strncmp(environment[a], "PATH=", 5) == 0)
+			if (strncmp(environ[a], "PATH=", 5) == 0)
 			{
-				path = strdup((environment[a] + 5));
+				path = strdup((environ[a] + 5));
 				break;
 			}
 			a++;
@@ -69,11 +68,11 @@ int main(int argc, char **argv, char **environment)
 
 		if (access(array_of_tok[0], X_OK) == 0)
 		{
-			executing(array_of_tok[0], array_of_tok, environment);
+			executing(array_of_tok[0], array_of_tok);
 		}
 		else
 		{
-			op = finding_the_path(paths, array_of_tok, environment);
+			op = finding_the_path(paths, array_of_tok);
 		}
 
 		free_str(array_of_tok);
