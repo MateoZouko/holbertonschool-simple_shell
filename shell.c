@@ -69,11 +69,11 @@ int main(int argc, char **argv, char **environment)
 
 		if (access(array_of_tok[0], X_OK) == 0)
 		{
-			executing(array_of_tok[0], array_of_tok);
+			executing(array_of_tok[0], array_of_tok, environment);
 		}
 		else
 		{
-			op = finding_the_path(paths, array_of_tok);
+			op = finding_the_path(paths, array_of_tok, environment);
 		}
 
 		free_str(array_of_tok);

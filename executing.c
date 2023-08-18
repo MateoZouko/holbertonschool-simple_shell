@@ -7,7 +7,7 @@
  * Return: 1/0
  */
 
-int executing(char *path, char **array)
+int executing(char *path, char **array, char **environment)
 {
 	pid_t pid;
 	int stats, exit_;
@@ -21,7 +21,7 @@ int executing(char *path, char **array)
 
 	if (pid == 0)
 	{
-		execve(path, array, NULL);
+		execve(path, array, environment);
 		return (1);
 	}
 

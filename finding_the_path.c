@@ -7,7 +7,7 @@
  * @args_array: array of arguments
  * Return: 1/0
  */
-int finding_the_path(char **path, char **args_array)
+int finding_the_path(char **path, char **args_array, char **environment)
 {
 	int a = 0;
 	char *t = NULL;
@@ -22,7 +22,7 @@ int finding_the_path(char **path, char **args_array)
 
 		if (access(t, F_OK) == 0)
 		{
-			executing(t, args_array);
+			executing(t, args_array, environment);
 			free(t);
 			return (0);
 		}

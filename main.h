@@ -15,8 +15,8 @@
 
 void free_str(char **arg);
 int freememory(char **tokens_array, char **path_array);
-int executing(char *path, char **string);
-int finding_the_path(char **path_array, char **args_array);
+int executing(char *path, char **string, char **environment);
+int finding_the_path(char **path_array, char **args_array, char **environment);
 int cleaningstring(char *l);
 int tokenident(char *string, char *del);
 char **string_tok(char *line, char *del);
